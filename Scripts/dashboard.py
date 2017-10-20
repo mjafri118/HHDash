@@ -119,14 +119,14 @@ class HHDashboard:
         o_h = float(o_h)
 
         #Goes based on 3.25/9 of height
-        new_h = (3.25/9.0)*self.screen_height
+        new_h = (3.75/9.0)*self.screen_height
         new_w = (new_h/o_h)* o_w
 
         resized = image.resize((int(new_w),int(new_h)),Image.ANTIALIAS)
         final_photo = ImageTk.PhotoImage(resized)
 
         x_coord = self.cpadx + self.screen_width/2
-        y_coord = 0*self.cpady + (4.25 * self.screen_height)/9
+        y_coord = 0*self.cpady + (4.50 * self.screen_height)/9
 
         print self.schedule_refresh_counter
 
