@@ -31,6 +31,8 @@ class HHDashboard:
 
         #Right Clicking GUI Will Quit.
         master.bind("<Button-2>", self.quitout)
+        master.bind("<Button-1>", self.quitout)
+        master.bind("<Button-3>", self.quitout)
 
         #Initiates Creation of Canvas Function.
         self.create_canvas(master)
