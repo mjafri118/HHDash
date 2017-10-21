@@ -78,7 +78,11 @@ class HHDashboard:
     #HackHarvard Logos display on top left, top right.
     def logos(self, master):
         #Gets the images.
-        image = Image.open("../Resources/HH_Logo.png")
+        try:
+            image = Image.open("../Resources/HH_Logo.png")
+        except IOError:
+            print "Error opening HH Logo!!"
+            pass
 
         #Converts original size of image to floats.
         o_w, o_h = image.size
@@ -95,7 +99,12 @@ class HHDashboard:
         new_w  = scalar * o_w
         new_h = scalar * o_h
         resized = image.resize((int(new_w),int(new_h)),Image.ANTIALIAS)
-        final_photo = ImageTk.PhotoImage(resized)
+
+        try:
+            final_photo = ImageTk.PhotoImage(resized)
+        except UnboundLocalError:
+            print "Unbound local error"
+            pass
 
         #Creates the Photo
         self.left_logo = self.w.create_image(self.cpadx + new_w/2, self.cpady + new_h/2, image = final_photo)
@@ -111,7 +120,12 @@ class HHDashboard:
     #Main image of HackHarvard in between two logos.
     def HH_main_image(self, master):
         #Gets the image.
-        image = Image.open("../Resources/HH_Main_Photo.jpg")
+        try:
+            image = Image.open("../Resources/HH_Main_Photo.jpg")
+
+        except IOError:
+            print "Error opening main Photo!"
+            pass
 
         #Converts original size of image to floats.
         o_w, o_h = image.size
@@ -126,7 +140,12 @@ class HHDashboard:
         new_w = (new_h/o_h)* o_w
 
         resized = image.resize((int(new_w),int(new_h)),Image.ANTIALIAS)
-        final_photo = ImageTk.PhotoImage(resized)
+
+        try:
+            final_photo = ImageTk.PhotoImage(resized)
+        except UnboundLocalError:
+            print "Unbound local error"
+            pass
 
         #Creates the Photo
         self.main_photo = self.w.create_image(self.cpadx + self.logo_w + remaining/2, 1.5*self.cpady + new_h/2, image = final_photo)
@@ -141,7 +160,11 @@ class HHDashboard:
 
     def r_schedule(self, master):
         #Gets the images.
-        image = Image.open("../Resources/schedule.jpg")
+        try:
+            image = Image.open("../Resources/schedule.jpg")
+        except IOError:
+            print "Error opening schedule!"
+            pass
 
         #Converts original size of image to floats.
         o_w, o_h = image.size
@@ -158,7 +181,11 @@ class HHDashboard:
             print "Reached an IO Error for schedule! Continuing."
             pass
 
-        final_photo = ImageTk.PhotoImage(resized)
+        try:
+            final_photo = ImageTk.PhotoImage(resized)
+        except UnboundLocalError:
+            print "Unbound local error"
+            pass
 
         x_coord = self.cpadx + self.screen_width/2
         y_coord = 0*self.cpady + (4.50 * self.screen_height)/9
@@ -195,7 +222,11 @@ class HHDashboard:
     def r_alert_dash(self, master):
 
         #Gets the images.
-        image = Image.open("../Resources/alert-d.jpg")
+        try:
+            image = Image.open("../Resources/alert-d.jpg")
+        except IOError:
+            print "Error opening alerts!"
+            pass
 
         #Converts original size of image to floats.
         o_w, o_h = image.size
@@ -216,7 +247,11 @@ class HHDashboard:
             print "Reached an IO Error for alerts! Continuing."
             pass
 
-        final_photo = ImageTk.PhotoImage(resized)
+        try:
+            final_photo = ImageTk.PhotoImage(resized)
+        except UnboundLocalError:
+            print "Unbound local error"
+            pass
 
         #Creates the Photo
         if self.alert_refresh_counter == 0:
